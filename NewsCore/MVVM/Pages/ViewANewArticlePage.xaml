@@ -4,7 +4,7 @@
              x:Class="NewsCore.MVVM.Pages.ViewANewArticlePage"
              xmlns:model="clr-namespace:NewsCore.MVVM.Models"
              xmlns:viewmodel="clr-namespace:NewsCore.MVVM.ViewModel"
-             Title="ViewAArticle"
+             Title="Detail Article"
              x:DataType="viewmodel:ViewANewArticleViewModel"> 
     
     <ContentPage.Content>

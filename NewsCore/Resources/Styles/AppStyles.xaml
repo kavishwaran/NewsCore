@@ -48,7 +48,7 @@
 
     <Style Class="BalanceRectangle" TargetType="RoundRectangle">
         <Setter Property="CornerRadius" Value="10" />
-        <Setter Property="Fill" Value="{StaticResource White}" />
+        <Setter Property="Fill" Value="{StaticResource Gray100}" />
         <Setter Property="StrokeThickness" Value="2" />
         <Setter Property="Shadow" Value="{StaticResource shadow}" />
     </Style>

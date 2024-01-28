@@ -2,29 +2,89 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NewsCore.MVVM.Pages.ViewNewsByDatePage"
-             Title="ViewNewsByDatePage">
-    <ContentPage.Content>
-        <StackLayout>
+             Title="View news based on Date">
+    <Grid RowDefinitions="Auto,*"> 
+  
             <!-- Date range picker -->
-            <StackLayout Orientation="Horizontal" Margin="10">
+            <StackLayout Grid.Row="0" Orientation="Horizontal" Margin="10">
                 <Label Text="Start Date:" VerticalOptions="Center" />
-                <DatePicker x:Name="StartDatePicker" VerticalOptions="Center" DateSelected="StartDatePicker_DateSelected" />
+            <Frame
+                    Grid.Column="1"
+                    Padding="2,2,2,2"
+                    BackgroundColor="Transparent"
+                    BorderColor="Transparent"
+                    VerticalOptions="Center">
+
+                <DatePicker
+                        x:Name="StartDatePicker"
+                        Margin="0"
+                        BackgroundColor="Transparent"
+                        DateSelected= "StartDatePicker_DateSelected" 
+                        FontSize="16"
+                        Format="yyyy-MMM-dd"
+                        HeightRequest="45"
+                        TextColor="Black"
+                        VerticalOptions="Center" />
+            </Frame>
+                
+            <!--<DatePicker 
+                    x:Name="StartDatePicker"
+                    VerticalOptions="Center" 
+                    DateSelected="StartDatePicker_DateSelected" />-->
                 <Label Text="End Date:" VerticalOptions="Center" />
-                <DatePicker x:Name="EndDatePicker" VerticalOptions="Center" DateSelected="EndDatePicker_DateSelected" />
+            <Frame
+                    Grid.Column="1"
+                    Padding="2,2,2,2"
+                    BackgroundColor="Transparent"
+                    BorderColor="Transparent"
+                    VerticalOptions="Center">
+                <DatePicker
+                     x:Name="EndDatePicker" VerticalOptions="Center" DateSelected="EndDatePicker_DateSelected"
+                        Margin="0"
+                        BackgroundColor="Transparent"
+                         
+                        FontSize="16"
+                        Format="yyyy-MMM-dd"
+                        HeightRequest="45"
+                        TextColor="Black"
+                         />
+            </Frame>
+
+            <!--<DatePicker x:Name="EndDatePicker" VerticalOptions="Center" DateSelected="EndDatePicker_DateSelected" />-->
             </StackLayout>
 
-            <!-- News ListView -->
+            <ScrollView  Grid.Row="1" >
+                <CollectionView ItemsSource="{Binding FilteredNews}" Margin="15,0,15,0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Gray" CornerRadius="10" Margin="0,5,0,5">
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" FontSize="Large" Text="{Binding Title}" TextColor="Black" FontAttributes="Bold"/>
+                                <Image Grid.Row="1"   Source="{Binding Url}" Aspect="AspectFit" HeightRequest="200"/>
+                                <!--<Label Grid.Row="2" FontSize="Medium" Text="{Binding Description}" TextColor="Black"/>-->
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            </ScrollView>
+
+            <!-- News ListView --><!--
             <ListView x:Name="NewsListView"
                       ItemsSource="{Binding FilteredNews}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <!-- Define how each news item should be displayed -->
+                        --><!-- Define how each news item should be displayed -->
                         
-                        <!-- For example: -->
+                        <!-- For example: --><!--
                         <TextCell Text="{Binding Title}" Detail="{Binding PublishedAt}" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
-    </ContentPage.Content>
+            </ListView>--> 
+    </Grid>
 </ContentPage>

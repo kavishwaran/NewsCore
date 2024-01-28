@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NewsCore.MVVM.Pages.TopHeadingMainCats"
-             Title="TopHeadingMainCats">
+             Title="Select Based on Category">
     <ContentPage.Content>
         <ScrollView>
 
@@ -15,7 +15,7 @@
         ItemsSource="{Binding Categories}">
                 </Picker>
 
-                <Button Text="Fetch News"
+                <Button Text="Load News"
             Clicked="Btn_Clicked"
             Margin="15,10,15,0"/>  
                 <CollectionView ItemsSource="{Binding Article}" Margin="15,0,15,0">

@@ -37,38 +37,39 @@
     <Grid RowDefinitions=".15*,.15*,.15*,.55*">
         <RoundRectangle Grid.RowSpan="2" StyleClass="TopRectangle" />
         <VerticalStackLayout  StyleClass="Header">
-            <Label StyleClass="HeaderTitle" Text="Good Morning"/>
-            <Label StyleClass="HeaderSub" Text="Good Morning"/>
+            <Label StyleClass="HeaderTitle" Text="News Core +" FontSize="Large"/> 
         </VerticalStackLayout>
+        <Grid
+         Grid.Row="1"
+         Grid.RowSpan="2"
+         StyleClass="BalanceGrid"
+            BackgroundColor="Aqua">
 
-        <!--<Grid
-            Grid.Row="1"
-            Grid.RowSpan="2"
-            StyleClass="BalanceGrid">
+         <RoundRectangle StyleClass="BalanceRectangle"/>
+         <Grid ColumnDefinitions="*,*"
+               RowDefinitions=".333*,.333*,.333*"
+               StyleClass="Padding25">
+             <!--<VerticalStackLayout >
+                    <Label Text="  Total  Headlines Count  " TextColor="Black"/>
+                 <Label Text="     200 " StyleClass="StrongSubTitle"/>
+             </VerticalStackLayout>-->
 
-            <RoundRectangle StyleClass="BalanceRectangle"/>
-            <Grid ColumnDefinitions="*,*"
-                  RowDefinitions=".333*,.333*,.333*"
-                  StyleClass="Padding25">
-                <VerticalStackLayout >
-                    <Label Text=" Headlines Today " TextColor="Black"/>
-                    <Label Text="200 " StyleClass="StrongSubTitle"/>
-                </VerticalStackLayout>
+             <!--<VerticalStackLayout Grid.Column="1"
+                                  HorizontalOptions="Center">
+                 <Label Text=" Total  Headlines Count " TextColor="Black" />
+                 <Label Text="200 " StyleClass="StrongSubTitle"/>
+             </VerticalStackLayout>-->
 
-                <VerticalStackLayout Grid.Column="1"
-                                     HorizontalOptions="Center">
-                    <Label Text=" Headlines Today " TextColor="Black" />
-                    <Label Text="200 " StyleClass="StrongSubTitle"/>
-                </VerticalStackLayout>
+             <VerticalStackLayout Grid.Row="0" Grid.ColumnSpan="2"
+                                 >
+                    <Label Text=" Stay Informed, Stay Ahead: Your Gateway to Timely News Updates. " FontSize="Large" FontAttributes="Bold" TextColor="Black" />
+                 <!--<Label Text="200 " StyleClass="StrongSubTitle"/>-->
+             </VerticalStackLayout>
+         </Grid>
 
-                <VerticalStackLayout Grid.Row="2"
-                                    >
-                    <Label Text=" Headlines Today " TextColor="Black" />
-                    <Label Text="200 " StyleClass="StrongSubTitle"/>
-                </VerticalStackLayout>
-            </Grid>
+ </Grid>
 
-        </Grid>-->
+
         <Grid Grid.Row="3">
             <VerticalStackLayout
             Spacing="25"

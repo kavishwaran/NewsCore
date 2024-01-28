@@ -4,7 +4,7 @@
              x:Class="NewsCore.MVVM.Pages.HomePage"
              xmlns:model="clr-namespace:NewsCore.MVVM.Models"
             xmlns:viewmodel="clr-namespace:NewsCore.MVVM.ViewModel"
-            Title="HomePage"
+            Title="View  All News"
               x:DataType="viewmodel:HomePageViewModel"> 
     <!--<StackLayout>
         --><!--<Button Text="Fetch News" Clicked="OnFetchNewsClicked"/>--><!--
@@ -28,10 +28,10 @@
     
     <!--//new-->
     <Grid RowDefinitions="Auto,Auto,50,*">
-        <Button
+        <!--<Button
             Grid.Row="0"
             Command="{Binding ViewDetailsCommand}"
-            Text="News History" />
+            Text="News History" />-->
 
         <Label
             Grid.Row="1"
