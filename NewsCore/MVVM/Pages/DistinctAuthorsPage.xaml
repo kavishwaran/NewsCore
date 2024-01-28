@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NewsCore.MVVM.Pages.DistinctAuthorsPage"
+              xmlns:model="clr-namespace:NewsCore.MVVM.Models"
+            xmlns:viewmodel="clr-namespace:NewsCore.MVVM.ViewModel"
+            Title="DistinctAuthorsPage"
+            x:DataType="viewmodel:DistinctAuthorsPageViewModel">
+
+    <!--<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NewsCore.MVVM.Pages.HomePage"
+             xmlns:model="clr-namespace:NewsCore.MVVM.Models"
+           ewsC xmlns:viewmodel="clr-namespace:Nore.MVVM.ViewModel"
+            Title="HomePage"
+              x:DataType="viewmodel:HomePageViewModel">-->
+
+
+        <ContentPage.Content>
+        <Grid RowDefinitions="Auto,Auto,50,*">
+            <Label
+               Grid.Row="1"
+               Margin="10"
+               FontAttributes="Bold"
+               HorizontalOptions="CenterAndExpand"
+               StyleClass="LblBlackR7"
+               Text="News Article" />
+
+            <Frame
+               Grid.Row="2"
+               Margin="0,0,0,0"
+               Padding="2">
+
+                <Grid
+                   Padding="10,0,10,0"
+                   ColumnDefinitions="Auto,.5*"
+                   ColumnSpacing="5">
+                    <Image
+                   Grid.Column="0"
+                   Source="search.png"
+                   WidthRequest="15" />
+                    <Entry
+                   Grid.Column="1"
+                   ClearButtonVisibility="WhileEditing"
+                   Placeholder="News Search"
+                   Text="{Binding SearchKeyword}"
+                   TextColor="Gray" />
+
+                </Grid>
+
+            </Frame>
+
+
+            <ScrollView Grid.Row="3">
+
+                <CollectionView
+                x:Name="NewsArticleCollection"
+                BackgroundColor="Transparent"
+                HorizontalOptions="Start"
+                ItemsSource="{Binding DistinctsListToView}"
+                RemainingItemsThreshold="1"
+                VerticalOptions="Start">
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Distinct">
+                            <StackLayout>
+                                <Frame
+                                Margin="5,2,5,2"
+                                Padding="10"
+                                BorderColor="Transparent">
+                                   
+
+                                    <StackLayout Orientation="Vertical">
+                                        <Grid
+                                        ColumnDefinitions="Auto,*"
+                                        ColumnSpacing="10"
+                                        RowDefinitions="*,*,*,*">
+
+                                            <Label
+                                            Grid.Column="0"
+                                            Text="{Binding Content}"
+                                            TextColor="Black" /> 
+
+                                        </Grid>
+
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+             
+
+
+            <!--<StackLayout>
+            --><!-- SearchBar for filtering authors --><!--
+            <SearchBar x:Name="AuthorSearchBar"
+                       Placeholder="Search authors"
+                       SearchCommand="{Binding SearchCommand}"
+                       SearchCommandParameter="{Binding Text, Source={x:Reference AuthorSearchBar}}" />-->
+
+            <!-- ListView to display distinct authors --><!--
+            <ListView ItemsSource="{Binding DistinctsListToView}">
+               
+                <ListView.ItemTemplate>
+                    <DataTemplate  x:DataType="model:Distinct">
+                            <TextCell Text="{Binding Content }"  FontAttributes="Bold"  />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>-->
+            
+      </Grid>   
+    </ContentPage.Content>
+ 
+</ContentPage>

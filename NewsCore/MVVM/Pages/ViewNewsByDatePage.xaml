@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NewsCore.MVVM.Pages.ViewNewsByDatePage"
+             Title="ViewNewsByDatePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <!-- Date range picker -->
+            <StackLayout Orientation="Horizontal" Margin="10">
+                <Label Text="Start Date:" VerticalOptions="Center" />
+                <DatePicker x:Name="StartDatePicker" VerticalOptions="Center" DateSelected="StartDatePicker_DateSelected" />
+                <Label Text="End Date:" VerticalOptions="Center" />
+                <DatePicker x:Name="EndDatePicker" VerticalOptions="Center" DateSelected="EndDatePicker_DateSelected" />
+            </StackLayout>
+
+            <!-- News ListView -->
+            <ListView x:Name="NewsListView"
+                      ItemsSource="{Binding FilteredNews}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <!-- Define how each news item should be displayed -->
+                        
+                        <!-- For example: -->
+                        <TextCell Text="{Binding Title}" Detail="{Binding PublishedAt}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

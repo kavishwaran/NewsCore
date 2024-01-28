@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NewsCore.MVVM.Pages.HomePage"
+             xmlns:model="clr-namespace:NewsCore.MVVM.Models"
+            xmlns:viewmodel="clr-namespace:NewsCore.MVVM.ViewModel"
+            Title="HomePage"
+              x:DataType="viewmodel:HomePageViewModel"> 
+    <!--<StackLayout>
+        --><!--<Button Text="Fetch News" Clicked="OnFetchNewsClicked"/>--><!--
+        <ListView x:Name="newsListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding Title}" FontAttributes="Bold"/>
+                            <Label Text="{Binding Author}" />
+                            <Label Text="{Binding Description}" />
+                            <Label Text="{Binding PublishedAt}" />
+                            <Label Text="{Binding Url}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>-->
+    
+    
+    <!--//new-->
+    <Grid RowDefinitions="Auto,Auto,50,*">
+        <Button
+            Grid.Row="0"
+            Command="{Binding ViewDetailsCommand}"
+            Text="News History" />
+
+        <Label
+            Grid.Row="1"
+            Margin="10"
+            FontAttributes="Bold"
+            HorizontalOptions="CenterAndExpand"
+            StyleClass="LblBlackR7"
+            Text="News Article" />
+
+        <Frame
+            Grid.Row="2"
+            Margin="0,0,0,0"
+            Padding="2">
+
+            <Grid
+                Padding="10,0,10,0"
+                ColumnDefinitions="Auto,.5*"
+                ColumnSpacing="5">
+                <Image
+                    Grid.Column="0"
+                    Source="search.png"
+                    WidthRequest="15" />
+                <Entry
+                    Grid.Column="1"
+                    ClearButtonVisibility="WhileEditing"
+                    Placeholder="News Search"
+                    Text="{Binding SearchKeyword}"
+                    TextColor="Gray" />
+
+            </Grid>
+
+        </Frame>
+
+        <ScrollView Grid.Row="3">
+
+        <CollectionView
+                x:Name="NewsArticleCollection"
+                BackgroundColor="Transparent"
+                HorizontalOptions="Start"
+                ItemsSource="{Binding Article}"
+                RemainingItemsThreshold="1"
+                VerticalOptions="Start">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:News">
+                    <StackLayout>
+                        <Frame
+                                Margin="5,2,5,2"
+                                Padding="10"
+                                BorderColor="Transparent">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Command="{Binding Source={x:Reference NewsArticleCollection}, Path=BindingContext.GoToViewAArticleVewCommand}"
+                                        CommandParameter="{Binding .}" />
+                                </Frame.GestureRecognizers>
+
+                                <StackLayout Orientation="Vertical">
+                                <Grid
+                                        ColumnDefinitions="Auto,*"
+                                        ColumnSpacing="10"
+                                        RowDefinitions="*,*,*,*">
+
+                                    <Label
+                                            Grid.Column="0"
+                                            Text="{Binding Author}"
+                                            TextColor="Black" />
+
+                                    <Grid
+                                            Grid.Row="1"
+                                            Grid.ColumnSpan="4"
+                                            ColumnDefinitions="*,*">
+
+                                        <Image
+                                                Grid.Row="0"
+                                                HeightRequest="150"
+                                                Source="{Binding Url}"
+                                                VerticalOptions="Start"
+                                                WidthRequest="150" />
+                                        <Label
+                                                Grid.Column="1"
+                                                FontAttributes="Bold"
+                                                StyleClass="LblBlackR2"
+                                                Text="{Binding Description}" />
+                                        <!--button-->
+                                            <!--<Button Grid.Row="1" Grid.Column="1"   Clicked="Button_Clicked" CommandParameter="{Binding Id}" Text="{Binding Id}" />-->
+                                        </Grid>
+
+
+                                </Grid>
+
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ScrollView>
+
+    </Grid>
+</ContentPage>

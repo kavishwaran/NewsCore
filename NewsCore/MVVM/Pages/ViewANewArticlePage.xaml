@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NewsCore.MVVM.Pages.ViewANewArticlePage"
+             xmlns:model="clr-namespace:NewsCore.MVVM.Models"
+             xmlns:viewmodel="clr-namespace:NewsCore.MVVM.ViewModel"
+             Title="ViewAArticle"
+             x:DataType="viewmodel:ViewANewArticleViewModel"> 
+    
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Label Text="{Binding SelectedNews.Author}" HorizontalOptions="Center"  FontAttributes="Bold" />
+            <Label HorizontalOptions="Center" Text="{Binding SelectedNews.Title}"  FontAttributes="Bold"  />
+            <!-- Display details of the selected model here -->
+            
+            <Image Source="{Binding SelectedNews.Url}" HeightRequest="200" />
+            <Label Text="{Binding SelectedNews.Description}" />
+            <Label Text="{Binding SelectedNews.Content}" />
+            <HorizontalStackLayout>
+                <Label Text="Published At" FontAttributes="Bold" ></Label>
+                 <Label Text="{Binding SelectedNews.PublishedAt}" />
+            </HorizontalStackLayout>
+           
+            <Label Text="{Binding SelectedNews.Title}" />
+
+            <!-- You can add more labels or other UI elements to display additional details -->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

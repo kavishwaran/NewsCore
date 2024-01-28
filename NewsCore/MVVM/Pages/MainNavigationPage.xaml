@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NewsCore.MVVM.Pages.MainNavigationPage"
+             Title="Home Page">
+
+    <!--<ContentPage.Resources>
+        --><!-- Define styles for the buttons --><!--
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#2196F3" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="HeightRequest" Value="50" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        </Style>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="20" VerticalOptions="CenterAndExpand">
+        --><!-- Button 1 --><!--
+        <Button Text="View All News" Style="{StaticResource ButtonStyle}"  Clicked="btnViewAll_Clicked"/>
+
+        --><!-- Button 2 --><!--
+        <Button Text="View by Category News" Style="{StaticResource ButtonStyle}"  Clicked="btnViewByCategory_Clicked"  />
+
+        --><!-- Button 3 --><!--
+        <Button Text="View News By Date" Style="{StaticResource ButtonStyle}" Clicked="btnViewByDate_Clicked"  />
+
+        --><!-- Button 4 --><!--
+        <Button Text="Major Categories " Style="{StaticResource ButtonStyle}"  Clicked="btnViewMajCats_Clicked" />
+    </StackLayout>-->
+
+
+
+    <Grid RowDefinitions=".15*,.15*,.15*,.55*">
+        <RoundRectangle Grid.RowSpan="2" StyleClass="TopRectangle" />
+        <VerticalStackLayout  StyleClass="Header">
+            <Label StyleClass="HeaderTitle" Text="Good Morning"/>
+            <Label StyleClass="HeaderSub" Text="Good Morning"/>
+        </VerticalStackLayout>
+
+        <!--<Grid
+            Grid.Row="1"
+            Grid.RowSpan="2"
+            StyleClass="BalanceGrid">
+
+            <RoundRectangle StyleClass="BalanceRectangle"/>
+            <Grid ColumnDefinitions="*,*"
+                  RowDefinitions=".333*,.333*,.333*"
+                  StyleClass="Padding25">
+                <VerticalStackLayout >
+                    <Label Text=" Headlines Today " TextColor="Black"/>
+                    <Label Text="200 " StyleClass="StrongSubTitle"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Column="1"
+                                     HorizontalOptions="Center">
+                    <Label Text=" Headlines Today " TextColor="Black" />
+                    <Label Text="200 " StyleClass="StrongSubTitle"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="2"
+                                    >
+                    <Label Text=" Headlines Today " TextColor="Black" />
+                    <Label Text="200 " StyleClass="StrongSubTitle"/>
+                </VerticalStackLayout>
+            </Grid>
+
+        </Grid>-->
+        <Grid Grid.Row="3">
+            <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+                <Button Text="Search News" 
+                    Clicked="btnViewAll_Clicked"
+                    BackgroundColor="#0A1D56"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    FontSize="Medium">
+                </Button>
+
+                <Button Text="Search News By Content" 
+                    Clicked="btnViewByCategory_Clicked" 
+                    BackgroundColor="#0A1D56"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    FontSize="Medium">
+                </Button>
+
+                <Button  Text="Search News By Date" 
+                   Clicked="btnViewByDate_Clicked" 
+                    BackgroundColor="#0A1D56"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    FontSize="Medium">
+                </Button>
+                <Button Text="News Categories Search" 
+                    Clicked="btnViewMajCats_Clicked" 
+                    BackgroundColor="#0A1D56"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    FontSize="Medium">
+                </Button>
+            </VerticalStackLayout>
+        </Grid>
+
+    </Grid>
+</ContentPage>
